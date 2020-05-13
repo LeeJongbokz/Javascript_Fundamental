@@ -1,0 +1,31 @@
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+
+- localCompare는 string끼리 비교하는 함수임
+- string a, string b와 
+  a.localCompare(b)를 기준으로,
+  음수이면 a가 b보다 앞에 있음을 나타내고,
+  양수이면 a가 b보다 뒤에 있음을 나타냄
+  
+https://stackoverflow.com/questions/8282802/what-do-return-1-1-and-0-mean-in-this-javascript-code
+
+- a[n] > b[n]이면 return 1을 해줌. 즉, 순서가 뒤바뀌게 됨
+- a[n] < b[n]이면 return -1을 해줌. 즉, 순서가 그대로 유지되게 됨 
+
+
+function solution(strings, n) {
+    
+    return strings.sort( (a,b) =>{
+        if(a[n] > b[n]){
+            return 1;
+        }
+        if(a[n] < b[n]){
+            return -1;
+        }
+        if(a[n] === b[n]){
+            return a.localeCompare(b);
+        }
+        
+    })
+}
