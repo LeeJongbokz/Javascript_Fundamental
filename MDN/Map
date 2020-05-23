@@ -1,0 +1,27 @@
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+Map 객체는 키-값 쌍을 저장하며 각 쌍의 삽입 순서도 기억하는 콜렉션임
+아무 값이라도 키와 값으로 사용할 수 있음 
+
+let myMap = new Map()
+
+let keyString = '문자열'
+let keyObj = {}
+let keyFunc = function() {}
+
+myMap.set(keyString, "'문자열'과 관련된 값")
+myMap.set(keyObj, 'keyObj와 관련된 값')
+myMap.set(keyFunc, 'keyFunc와 관련된 값')
+
+myMap.size // 3
+
+myMap.get(keyString)
+myMap.get(keyObj)
+myMap.get(keyFunc) 
+
+myMap.get('문자열')
+
+myMap.get({})
+
+myMap.get({})
+myMap.get(function() {}) 
