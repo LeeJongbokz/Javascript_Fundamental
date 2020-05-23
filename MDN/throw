@@ -1,0 +1,41 @@
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/throw
+
+throw 문은 사용자 정의 예외를 던질 수 있습니다. 현재 함수의 실행이 중지되고 (throw 이후의 명령문은 실행되지 않습니다.), 
+컨트롤은 콜 스택의 첫 번째 catch 블록으로 전달됩니다. 호출자 함수 사이에 catch 블록이 없으면 프로그램이 종료됩니다. 
+
+function getRectArea(width, height) {
+  if (isNaN(width) || isNaN(height)) {
+    throw 'Parameter is not a number!';
+  }
+}
+
+function getRectArea(width, height){
+ 	if(isNan(width) || isNaN(height)){
+     // 사용자 정의 예외를 던질 수 있음
+     // 현재 함수의 실행이 중지됨 
+     throw Parameter is not a number!'; 
+    }
+  
+}
+
+try {
+  getRectArea(3, 'A');
+}catch (e) {
+  console.error(e);
+  // expected output: "Parameter is not a number!"
+}
+
+
+try {
+  getRectArea(3, 'A');
+}catch (e) {
+  // 컨트롤은 콜 스택의 첫 번째 catch 블록으로 전달됨 
+  // 호출자 함수 사이에 catch 블록이 없으면 프로그램이 종료됨 
+  console.error(e);
+}
+
+
+
+
+
