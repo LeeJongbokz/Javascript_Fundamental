@@ -1,0 +1,76 @@
+https://developer.mozilla.org/ko/docs/Glossary/First-class_Function
+
+함수를 다른 변수와 동일하게 다루는 언어는 일급 함수를 가졌다고 표현함
+-> 함수를 다른 변수와 동일하게 다루는 언어는 일급 함수를 가졌다고 표현함 
+-> 예를 들어, 일급 함수를 가진 언어에서는 함수를 다른 함수에 매개 변수로 제공하거나,
+   함수가 함수를 반환할 수도 있으며, 변수에도 할당할 수 있음(5/24) 
+-> 예를 들어, 일급 함수를 가진 언어에서는 함수를 다른 함수에 매개 변수로 제공하거나,
+   함수가 함수를 반환할 수도 있으며, 변수에도 할당할 수 있음(5/24) 
+
+
+// 변수 foo에 익명함수를 할당함 
+const foo = function(){
+   console.log("foobar");
+}
+
+// 변수를 사용해 호출
+foo();
+
+
+
+function sayHello(){
+   return "Hello, ";
+}
+
+function greeting(helloMessage, name){
+   console.log(helloMessage() + name);
+}
+
+// sayHello함수를 greeting()의 인자로 전달함
+// 이것이 함수를 어떻게 변수처럼 다루는지 보여주는 예시임 
+// 다른 함수에 인자로 전달된 함수를 콜백 함수라고 함 
+// sayHello는 콜백함수임
+greeting(sayHello, "Javascript");
+
+
+// 함수가 함수를 반환하는 예제임 
+// Javascript에서는 함수를 변수처럼 취급하기 때문에
+// 함수를 반환할 수 있음 
+// 함수를 반환하는 함수를 고차함수라고 함 
+// 함수를 반환하는 함수를 고차함수라고 함 (5/24) 
+const sayHello = function(){
+      return function(){
+         console.log("안녕하세요:");
+      }
+}
+
+const func = sayHello();
+
+func();
+
+// 만약 sayHello 함수를 직접 호출하면, 반환된 함수를 호출하지 않고,
+// 함수 자체를 반환함. 
+// 그러므로 반환된 함수를 다른 변수에 저장해서 사용해야 함 
+
+
+// 이중 괄호를 사용해 반환한 함수도 호출하고 있음 
+
+function sayHello(){
+    return function(){
+       console.log("안녕하세요");
+    }  
+ }
+ 
+ sayHello()()
+ 
+
+
+
+
+
+
+
+
+
+
+
