@@ -1,0 +1,18 @@
+
+https://developer.mozilla.org/ko/docs/Glossary/Callback_function
+
+- 콜백함수는 다른 함수의 인자로서 전달되는 함수임
+-> Outer function의 내부에서 호출되어서, 몇몇 종류의 루틴이나 액션을 완료함(5/24) 
+
+// greeting()은 콜백함수임  
+function greeting(name){
+    alert('Hello' + name);
+}
+
+// processUserInput은 Outer function임
+function processUserInput(callback){
+    var name = prompt("이름을 입력하세요:");
+    callback(name)
+}
+
+processUserInput(greeting)
