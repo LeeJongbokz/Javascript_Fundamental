@@ -1,0 +1,59 @@
+https://developer.mozilla.org/ko/docs/Glossary/Hoisting
+
+- Javascript가 어떤 코드 구분을 실행하기 전에,
+  함수 선언을 메모리에 저장하는 방식의 장점 중 하나는
+  코드에서 선언하기 전에 함수를 사용할 수 있다는 것임
+ 
+ function catName(name){
+    console.log("My Cat Name is " + name);
+ }
+ 
+ catName("Tigger");
+ 
+ 
+ - 비록 함수를 작성하기 전에 함수를 호출하였지만,
+   코드는 여전히 동작함
+ -> 이는 Javascript에서 컨텍스트 실행이 작동하는 방식 때문임
+ 
+ catName("Chloe");
+ 
+ function catName(name){
+    console.log("My Cat Name is " + name);
+ }
+ 
+ 
+ - Javascript는 초기화가 아닌 선언만 끌어올림(hoist)
+ -> 만약 변수를 선언한뒤, 나중에 초기화 시켜서 사용한다면
+    그 값은 undefined로 지정됨
+    
+num = 6
+num += 7
+var num;
+
+var x = 1;
+var y;
+console.log(x + " " + y);
+y = 2;
+
+var x = 1;
+console.log(x + " " + y);
+var y = 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+ 
+  
