@@ -1,0 +1,39 @@
+
+https://developer.mozilla.org/ko/docs/Glossary/Scope
+
+- Scope란 현재 실행의 컨텍스트를 의미함
+-> 값과 표현을 '볼 수 있고', 레퍼런스 될 수 있는 컨텍스트를 의미함
+
+- 자바스크립트에서 함수는 클로저의 역할을 함
+-> 따라서 함수 안에서 정의된 변수는 바깥 함수나 다른 함수에서 접근할 수 없음
+
+
+function exampleFunction(){
+    var x = "inside the function";
+    console.log("inside function");
+    console.log(x);
+}
+
+console.log(x);
+
+- 하지만 이 경우는 변수가 함수 바깥에 선언되었으므로, 유효함
+
+var x = "declared outside the function";
+
+exampleFunction();
+
+function exampleFunction(){
+   console.log("Inside the function");
+   console.log(x);
+}
+
+console.log(x);
+
+
+  
+
+
+
+
+
+
