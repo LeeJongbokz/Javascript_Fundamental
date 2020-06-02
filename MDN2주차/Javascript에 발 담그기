@@ -135,6 +135,39 @@ function checkGuess(){
 - 코드는 괄호 앞에 위치한 함수의 이름을 적음으로 실행됨
 -> 코드를 저장하고 브라우저에서 새로고침을 통해 실행해봄
 
+
+- developer tools Javascript console에 들어가서 다음 문장을 입력해봄
+-> checkGuess();
+
+"I am a placeholder"라고 알리는 alert를 볼 수 있음
+-> 여기서는 함수가 호출되면 alert가 생성되는 함수로 정의되어 있음
+
+
+- 연산자
+
+- 자바스크립트의 연산자는 테스트를 진행하고, 수학적인 것을 다루고,
+  문자열을 결합하는 등의 것들을 가능케 함
+  
+- 먼저 산술 연산자를 살펴봄
+1) + : 더하기  6+9
+2) - : 빼기  20-15
+3) * : 곱하기 3*7
+4) / : 나누기 10/5
+
+- 또한 + 연산자는 문자열들을 서로 연결할 때에도 사용됨(이를 '문자열 접합'이라고 함)
+-> 다음 코드를 입력해봄
+
+var name = 'Bingo';
+name;
+var hello = ' says hello!';
+hello;
+var greeting = name + hello;
+greeting
+
+
+  
+
+
    
  
  
