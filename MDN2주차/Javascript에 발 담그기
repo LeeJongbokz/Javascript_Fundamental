@@ -348,6 +348,93 @@ greeting
 
 
 
+- '복합 대입 연산자'라고 불리는 소스를 간단하게 만드는 연산자도 있음
+-> 예를 들어, 단순히 새로운 문자열을 기존에 있는 문자열에 추가하고,
+   그 결과를 반환 받는 일을 하고 있다면 다음 코드를 사용할 수 있음
+  
+name += ' says hello!'
+
+- 이 코드는 다음과 같은 의미임
+
+name = name + ' says hello!';
+
+
+- 참/거짓을 판명할 때, 비교연산자를 사용함
+
+=== : Strict Equality
+!== : Non-Equality
+< : less than
+> : greater than
+
+
+- 조건문
+
+함수가 반환되었을 때, 자리표시자 메시지를 표시하지 않는 것이 더 좋을 것이라고 봄
+-> 우리는 사용자의 추측이 옳은것인지, 틀린것인지만 보고 적절하게 응답하도록만 함
+
+이 시점에서 이제 현재 checkGuess()함수를 다음과 같이 수정함
+
+function checkGuess(){
+  var userGuess = Number(guessField.value);
+  
+  if(guessCount == 1){
+     guess.textContent = 'Previous guesses: ';
+  }
+  
+  guesses.textContent += userGuess + ' ';
+  
+  if(userGuess === randomNumber){
+     lastResult.textContent = 'Congratulations! You got it right!';
+     lastResult.style.backgroundColor = 'green';
+     lowOrHi.textContent = '';
+     setGameOver(); 
+  }else if(guessCount === 10){
+     lastResult.textContent = '!!!GAME OVER!!!'
+     setGameOver();
+  }else{
+     lastResult.textContent = 'Wrong!';
+     lastResult.style.backgroundColor = 'red';
+     if(userGuess < randomNumber){
+      lowOrHi.textContent = 'Last guess was too low!'
+     }else if(userGuess > randomNumber){
+      lowOrHi.textContent = 'Last guess was too high!;
+     }
+  }만
+  
+  guessCount++;
+  guessField.value = '';
+  guessField.focus();
+}
+
+
+- 2번 줄까지는 userGuess변수를 선언하고, 텍스트 필드에서 입력된 현재 값들을
+  변수의 값으로 지정함
+-> 여기서는 빌트인된 Number() 메소드로 실행됨 
+
+- 그러고나서 처음으로 조건문을 맞닥뜨림
+-> 조건문 블록은 조건이 옳은지 그른지에 따라 선택적으로 실행됨
+-> 함수와 비슷하나 꼭 그렇지는 않음
+-> 가장 간단한 조건문의 형태는 if를 사용하고, 괄호가 있고, 중괄호가 있음
+-> 괄호 안에는 조건이 삽입됨
+-> 만약 조건문이 옳다면, 중괄호안의 코드들이 실행됨
+-> 함수와 비슷하나 꼭 그렇지는 않음
+
+- 조건문이 옳다면, 중괄호안의 코드들이 실행됨
+-> 거짓이라면 다음 코드로 넘어가게 됨
+-> 이 코드에서 조건문은 guessCount 변수가 1인지임
+   (즉, 현재 플레이어의 게임이 처음인지 아닌지를 판단하는 조건)
+
+guessCount === 1
+
+- 참이라면 guesses 변수의 텍스트는 "Previous Guesses: "가 됨
+-> 그렇지 않다면 실행되지 않음
+
+- 6번 줄에서는 현재의 userGuess 값에 마지막 guesses 문장을 추가하고,
+  끝에 공백을 더함으로서 각각의 추측한 수끼리 간격을 두고 보여짐
+     
+  
+  
+  
   
 
 
