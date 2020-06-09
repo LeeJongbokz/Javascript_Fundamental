@@ -27,7 +27,34 @@
 
 ## 구문 에러 고치기
 
+- 수업 앞쪽에서 간단한 자바스크립트 명령어를 developer tools Javascript console에서 살펴봄
+-> 좋은 것은 브라우저의 자바스크립트 엔진이 구문 에러가 발생할 때마다
+   에러메시지를 콘솔에 던져줌
+   
+1. 열려져 있는 number-game-errors.html이 있는 탭으로 가서 자바스크립트 콘솔 창을 열음
+-> 다음 줄을 따라 에러메시지를 볼 수 있음
 
+2. 이는 쉬운 에러이기 때문에 브라우저가 해결하도록 팁 등을 알려줌
+   왼쪽부터 살펴보면
+ - 빨간색 x는 에러라는 것을 의미함
+ - 무엇이 잘못되었는지 알려줌
+ -> 여기서는 TypeError: guessSubmit.addeventListener is not a function
+ - 에러가 발생한 줄번호와 그 줄에서 몇 번째 문자에 있는지 알려줌
+ -> 여기서는 86번째 줄 앞에서 3번째 문자임
+ 
+ 3. 편집기에서 86번째 줄을 봄
+   guessSubmit.addeventListener('click', checkGuess);
+   
+ 4. "guessSubmit.addeventListener is not a function" 이라고 에러 메시지가 뜬 걸로 보아
+    아마 철자가 잘못되었을 것임
+    -> 만약 철자가 애매하거나 하면 MDN에서 찾아보는 것이 좋음
+
+ 5. 여기서 살펴보면, 함수의 이름 철자가 틀려서 에러가 났음을 알 수 있음
+ -> 자바스크립트와 같은 프로그래밍은 정확하기 때문에 한 글자라도 틀리면 에러가 남
+ -> addeventListener를 addEventListener로 바꿈으로 에러는 해결됨
+ 
+ 
+   
 
 
    
