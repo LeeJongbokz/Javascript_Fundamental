@@ -96,4 +96,27 @@ Note
 
 쓰일 수 있음
 
+- 우리는 어떻게 그런 로직을 코딩할 수 있는지 볼 것임
+-> 우리가 조건적 선언을 볼 때
+-> 지금은 우선 빠른 예시를 봄
+
+<button> Start machine </button>
+<p>The machine is stopped</p>
+
+var btn = document.querySelector('button');
+var txt = document.querySelector('p');
+
+btn.addEventListener('click', updataBtn);
+
+function updataBtn(){
+   if(btn.textContent === 'Start machine'){
+     btn.textContent = 'Stop machine';
+     txt.textContent = 'The machine has started!';
+   }else{
+     btnt.textContent = 'Start machine';
+     txt.textContent = 'The machine has stopped!';
+   }
+}
+
+
 
