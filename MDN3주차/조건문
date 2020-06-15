@@ -42,3 +42,67 @@ if(condition){
 -> 또 다른 중괄호 안에 더 많은 코드가 있음
 -> 이것은 우리가 좋아하는 코드 일 수 있고, 조건이 true가 아닌 경우에만 실행됨
 
+- 이 코드는 사람이 읽을 수 있음
+-> 만약 조건이 true면, 코드 A를 실행하고, 아니면 코드 B를 실행함
+
+- 반드시 else와 두 번째 중괄호를 포함하지 않아도 된다는 것을 주목해야 함
+-> 다음은 또한 완벽한 코드임
+
+ if(condition){
+    code to run if condition is true
+ }
+ 
+ run some other code
+ 
+- 하지만, 여기서 조심해야 할 점
+-> 위의 경우, 코드의 두 번째 블록은 조건문에 의해서 제어되지 않음
+-> 그래서 조건이 true나 false를 리턴하는 것에 관계없이 항상 동작함
+-> 이것이 반드시 나쁜 것은 아니지만, 원하는 대로 되지 않을 수도 있음
+-> 코드의 한 블록이나 다른 블록이 실행되거나 둘 다 실행되지 않는 것을 원함
+
+- 마지막으로, 다음과 같이 짧은 스타일로 중괄호 없이 쓰여진 if...else를 볼 수 있었음
+if (condition) code to run if condition is true
+else run some other code instead
+
+- 이것은 완벽하게 유효한 코드이지만, 사용하는 것을 추천하지 않음
+-> 중괄호를 사용하여 코드를 구분하고, 여러 줄과 들여쓰기를 사용한다면,
+   코드를 쉽게 읽고, 진행되는 작업을 훨씬 쉽게 처리할 수 있음(6/15)
+   
+### 실제 예시
+
+- 문법을 잘 이해하기 위해서 실제 예시를 알아봄
+-> 어머니나 아버지가 아이에게 집안일을 도와달라고 요청한다고 상상해봄
+-> 부모님께서 "우리 애기, 만약에 쇼핑 하고 가는 걸 도와주면 용돈을 더 줄게! 
+              그럼 네가 원하는 걸 살 수 있을거야"라고 말씀 하신다면,
+   자바스크립트에서 이것을 다음과 같이 표현할 수 있음
+   
+var shoppingDone = false;
+
+if(shoppingDone === true){
+   var childAllowance = 10;
+}else{
+   var childsAllowance = 5;
+}
+
+- 위 코드에는 항상 false를 리턴하는 shoppingDone 변수를 결과로 얻음
+-> 아이에게 실망을 안겨줌
+-> 아이가 부모님과 함께 쇼핑을 간다면 우리가 부모님을 위해 shoppingDone변수를
+   true로 설정하는 메커니즘을 만들 수 있음
+   
+   
+### else if
+
+- 지난 예시에서는 두 가지 선택과 결과가 있었음
+-> 하지만 우리가 두 가지보다 더 많은 선택과 결과를 원한다면?
+-> 추가로 선택/결과를 if...else에 연결하는 방법이 있음
+
+- else if를 사용하여 각 추가 선택은 if(){...}와 else{...}사이에 추가적인 블록이 필요함
+
+<label for="weather"> Select the weather type today: </label>
+<select id="weather">
+   <option value= ""> --Make a choice --</option>
+   
+
+
+   
+   
