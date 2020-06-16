@@ -271,4 +271,64 @@ if(!(iceCreamVanOutside || houseStatus === 'on fire')){
    
 
    
+  ### switch 문
+  
+  - if ... else 문은 조건문 코드가 잘 동작되는 일을 하지만, 단점이 없지 않음
+  -> 그 문은 두 가지 선택을 가지고 있는 경우에 주로 유용함
+  -> 그리고 각각은 실행되기 위한 합리적인 양의 코드가 필요하고,
+     AND/OR 조건은 복잡함
+  -> 어떤 값의 선택으로 변수를 설정하거나 조건에 따라서 특정 문을 출력하는 경우
+     구문이 약간 번거로울 수 있음
+  -> 특히 많은 선택 항목이 있는 경우에 특히 그러함(6/16)    
+  
+  - switch statements는 당신의 친구임
+  -> 이는 입력으로 하나의 표현식/값을 받고, 값과 일치하는 하나를 찾을 때까지
+     여러 항목을 살펴보고 그에 맞는 코드를 실행함(6/16)
+  -> 여기 몇몇 많은 수도코드가 있음(6/16)
+  
+  - switch (expression) {
+      case choice1:
+          run this code
+          break;
+      case choice2:
+          run this code
+          break;
+          
+       // include as many cases as you like
+       
+       default:
+          actually, just run this code
+    }
+     
+   - 뒤에 괄호가 오는 키워드 switch
+   - 괄호 내부에는 표현식이나 값을 입력함
+   - 표현식이나 값이 될 수 있는 선택이 따라 오는 키워드 case는 콜론이 뒤에 옴
+   - break문은 뒤에 세미콜론이 옴.
+     이전의 선택이 표현식이나 값과 일치한다면 해당 코드 블록에서 실행을 멈추고,
+     switch 문 아래에 있는 어떤 코드로 이동함(6/16)
+   - 원하는 많은 다른 케이스를 입력할 수 있음
+   - 키워드 default는 case들과 같은 코드를 입력하고, 일치하는 항목이 없으면 
+     실행되는 기본 옵션임
+     case와 일치하지 않고, 예외가 필요하지 않는 경우 제외할 수 있음
+   
+   
+   ### 삼항 연산자
+   
+   - 다른 예제로 들어가기 전에 소개하고 싶은 마지막 구문이 있음
+   -> 삼항 연산자는 조건이 참이면 한 값/표현식을 반환하고
+      조건이 거짓이면 다른 값/표현식을 반환하는 구문임
+   -> 이것은 어떤 상황에 유용할 수 있으며, 참/거짓 조건을 간단히 선택할 수 있는
+      상황이라면 if...else 블록문보다 코드를 훨씬 적게 사용할 수 있음(6/16)
+      
+   (condition) ? run this code : run this code instead
+   
+   - 그러면 간단한 예를 봄
+   
+   var greeting = ( isBirthday ) ? 'Happy birthday Mrs.Smith - we hope you have a great day!');
+   
+   isBirthday라는 변수명이 여기 있음
+   -> 게스트가 생일이면 '해피버스데이'메시지를 보내고,
+      생일이 아니라면 일반적인 '인사'메시지를 보내는 경우에 해당됨(6/16)
+      
+   
    
