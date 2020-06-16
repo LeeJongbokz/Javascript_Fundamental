@@ -101,8 +101,119 @@ if(shoppingDone === true){
 <label for="weather"> Select the weather type today: </label>
 <select id="weather">
    <option value= ""> --Make a choice --</option>
+   <option value="sunny">Sunny</option>
+   <option value="rainy">Rainy</option>
+   <option value="snowing">Snowing</option>
+   <option value="overcast">Overcast</option>
+</select>
+
+<p></p>
+
+var select = document.querySelector('select');
+var para = document.querySelector('p');
+
+select.addEventListener('change', setWeather);
+
+function setWeather(){
+  var choice = select.value;
+  
+  if (choice === 'sunny') {
+    para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.';
+  } else if (choice === 'rainy') {
+    para.textContent = 'Rain is falling outside; take a rain coat and a brolly, and don\'t stay out for too long.';
+  } else if (choice === 'snowing') {
+    para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
+  } else if (choice === 'overcast') {
+    para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
+  } else {
+    para.textContent = '';
+  }
+  
+1. 여기서 우리는 HTML <select> 엘리먼트를 이용해서 다른 날씨 선택과 간단한 문단을 만들 수 있음
+2. 자바스크립트에서 <select>와 <p> 엘리먼트를 모두 저장하고 있고, 
+   <select> 엘리먼트에 이벤트 리스너를 추가하고, 
+   값이 변할 때 setWeather() 함수가 동작함 (6/16)
+   
+3. 함수가 동작했을 때, 현재 <select>에서 선택된 값을 choice라는 변수에 설정함
+   그런 다음 조건문을 사용하여 choice 값에 따라 문단 안에 다른 텍스트를 표시함
+-> if() {...} block에서 테스트된 첫번째를 제외하고,
+   else if() {...}에서 조건이 테스트되는 방법에 유의함(6/16)
+
+4. else{...} 안의 가장 마지막 선택은 기본적으로 "최후의 수단"옵션임
+-> true인 조건이 없으면 코드가 실행됨
+-> 이 경우 아무것도 실행되지 않으면 예를 들어, 
+   사용자가 처음에 표시한 "Make a choice" placeholder 옵션에서 다시 선택하기로 한다면,
+   문단의 텍스트를 비우는 역할을 함(6/16)
    
 
+### 비교 연산자
 
+- 비교 연산자는 우리 조건문 안의 조건을 테스트하는 역할을 함
+-> 우리는 먼저 Basic math in Javascript - numbers and operators에서 
+   비교 연산자를 봄
+1) === 와 !==
+- 한 값이 다른 값과 같거나 다른지 테스트함
+2) < 와 >
+- 한 값이 다른 값보다 큰지 작은지 테스트함
+3) <= 와 >=
+- 한 값이 다른 값보다 작거나 같은지 크거나 같은지 테스트함
+
+- boolean(true/false)값과 몇 번이고 다시 만날 일반적인 패턴을 테스트하는 것의
+  특별한 언급을 하고 싶었음
+-> false, undefined, null, 0, NaN이나 빈 문자열('')이 아닌 어떤 값은 
+   조건문이 테스트 되었을 때 true를 리턴함
+-> 그러므로 우리는 변수가 참인지 값이 존재하는지 간단하게 변수 이름을 사용할 수 있음(6/16)
+-> 예를 들어,
+
+var cheese = 'Cheddar';
+
+if(cheese){
+  console.log('Yay! Cheese available for making cheese on toast.');
+}else{
+  console.log('No cheese on toast for you today!');
+}
+
+- 그리고 부모님을 위해 집안일을 하는 아이에 대한 이전 예시에서 
+  리턴하는 것을 다음과 같이 작성할 수 있음
+
+var shoppingDone = false;
+
+if(shoppingDone){
+   var childAllowance = 10;
+}else{
+   var childAllowance = 5;
+}
+
+
+### if ... else 중첩
+
+- if ... else 문을 다른 문 앞에 넣는 것은 완벽하게 가능함
+-> 예를 들어, 온도가 무엇인지에 따라 더 많은 옵션을 보여주기 위해
+   우리의 날씨 예보 어플리케이션에서 업데이트할 수 있음
+   
+ if(choice === 'sunny'){
+   if(temparature < 86) {
+     para.textContent = 'It is ' + temperature + ' degrees outside — nice and sunny. Let\'s go out to the beach, or the park, and get an ice cream.';
+  } else if (temperature >= 86) {
+     para.textContent = 'It is ' + temperature + ' degrees outside — REALLY HOT! If you want to go outside, make sure to put some suncream on.';
+  }
+}
+   
+- 비록 코드가 모두 동작하더라도, 
+  각 if ... else문은 다른 문과 완전히 독립적으로 동작함(6/16)
+  
+
+### 논리 연산자 
+
+- 만약 중첩된 if ... else 문을 작성하는 것 없이 다양한 조건을 테스트하길 원한다면
+  logical operators이 당신을 도와줄 수 있음
+-> 조건 내에서 사용될 때, 처음 두 가지는 다음과 같이 함
+
+&& - AND - true를 리턴하는 전체 표현식을 위해 각각 true로 계산되는 
+           둘 이상의 표현식을 함께 연결할 수 있음
+|| - OR - true를 리턴하는 전체 표현식을 위해 하나 이상의 true로 계산되는 
+          둘 이상의 표현식을 함께 연결할 수 있음(6/16)
+          
+          
    
    
