@@ -214,6 +214,25 @@ if(shoppingDone){
 || - OR - true를 리턴하는 전체 표현식을 위해 하나 이상의 true로 계산되는 
           둘 이상의 표현식을 함께 연결할 수 있음(6/16)
           
-          
+- AND 예시를 위해서 앞의 예제 코드 중에서 다음과 같이 작성할 수 있음
+
+if(choice === 'sunny' && temperature < 86){
+      para.textContent = 'It is ' + temperature + ' degrees outside — nice and sunny. Let\'s go out to the beach, or the park, and get an ice cream.';
+}else if(choice === 'sunny' && temperature >= 86){
+       para.textContent = 'It is ' + temperature + ' degrees outside — REALLY HOT! If you want to go outside, make sure to put some suncream on.';
+}
+
+- 위 예시에서, 첫 번째 코드 블록은 choice === 'sunny'와 temperature <86가 true를 리턴한다면 실행됨
+
+- 빠르게 OR 예시를 봄
+
+if (iceCreamVanOutside || houseStatus === 'on fire'){
+    console.log('You should leave the house quickly.');
+}else{
+    console.log('Probably should just stay in then.');
+}
+
+- 논리 연산자의 마지막 유형인 ! 연산자로 표현되는 NOT은 표현식을 무효화할 수 있음
+-> 위 OR 예시와 함께 봄
    
    
