@@ -330,6 +330,37 @@
    
    
   
+  ### 함수 안의 함수
+  
+  - 당신이 함수를 어디서나 부를 수 있다는 점을 기억해야 함.
+    심지어는 다른 함수 내에서도 부를 수 있음
+  -> 이것은 종종 코드를 깔끔하게 유지하기 위한 방법으로 사용됨
+  -> 당신이 만약 크고 복잡한 함수를 갖고 있다면,
+     그것을 여러 개의 하위 함수로 쪼갠다면 이해하기 쉬움(6/29)
+     
+   function myBigFunction(){
+     var myValue;
+     
+     subFunction1();
+     subFunction2();
+     subFunction3();
+   }
+   
+   function subFunction1(){
+      console.log(myValue);
+   }
+    
+   function subFunction2(){
+      console.log(myValue);
+   }
+   
+   function subFunction3(){
+      console.log(myValue);
+   }
+   
+   
+    
+    
   
   
   
