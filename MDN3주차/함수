@@ -358,6 +358,45 @@
       console.log(myValue);
    }
    
+   - 함수 안에서 사용된 값들이 scope안에 적절히 있는지를 확인함
+   -> 위의 예시는 ReferenceError: myValue is not defined를 throw 해야 함
+      왜냐하면 myValue 변수가 function call과 같은 scope에 정의되어 있지만,
+      이것은 function definitions 안에 정의되어 있지 않음
+   -> 실제 코드는 functions안에서 동작함
+   -> 이것이 동작하도록 하기 위해서는, 당신은 value를 함수로 parameter로 넘겨야 함
+      바로 다음과 같이
+      
+   function myBigFunction(){
+      var myValue = 1;
+      
+      subFunction1(myValue);
+      subFunction2(myValue);
+      subFunction3(myValue);
+   }
+   
+   function subFunction1(value){
+      console.log(value);
+   }
+   
+   function subFunction2(value){
+      console.log(value);
+   }
+   
+   function subFunction3(value){
+      console.log(value);
+   }
+   
+   
+   ### 결론
+   
+   - 이 아티클은 함수의 배경에 있는 기본적인 컨셉을 탐색했고,
+     다음 것을 위한 길을 닦았음
+   -> 다음 것에서 실용적인 것을 다루며, 당신을 당신 자신의 custom function을
+      만들도록 함(6/29) 
+   
+      
+      
+      
    
     
     
