@@ -47,4 +47,83 @@ https://developer.mozilla.org/ko/docs/Learn/JavaScript/Building_blocks/Build_you
     -> 함수에 전달하고자 하는 인수는 괄호()안에 작성함
     -> 그리고 우리가 만들고자 하는 로직은 중괄호 안에 작성함(6/29) 
     
-    
+ 3. 마지막으로 아래의 코드를 중괄호 안에 작성함
+ 
+ const html = document.querySelector('html');
+ 
+ const panel = document.createElement('div');
+ panel.setAttribute('class', 'msgBox');
+ html.appendChild(panel);
+ 
+ const msg = document.createElement('p');
+ msg.textContent = 'This is a message box';
+ panel.appendChild(msg);
+ 
+ const closeBtn = document.createElement('button');
+ closeBtn.textContent = 'x';
+ panel.appendChild(closeBtn);
+ 
+ closeBtn.onclick = function(){
+      panel.parentNode.removeChild(panel);
+ }
+ 
+ - 코드가 꽤 긴 편이니 조금씩 설명을 이어감
+ 
+ - 첫 번째 줄에서 document.querySelector()라는 DOM API를 사용함
+ -> 이 API는 <html> 엘리먼트를 선택하여 html이라는 변수에 저장함
+ -> 따라서 아래와 같은 작업을 수행할 수 있음(7/1)
+ 
+ const html = document.querySelector('html');
+ 
+ - 다음 줄에선 마찬가지로 DOM API인 document.createElement()을 사용하여
+   <div>엘리먼트를 생성한 후 panel 변수에 저장함
+ -> 이 엘리먼트는 메시지 상자 바깥쪽 컨테이너가 될 것임(7/1)
+ 
+ - 그리고 또 다른 DOM API인 Element.setAttribute()을 사용하여 class속성을 만들고
+   그 이름을 msgBox로 지정함
+   -> 이 작업으로 스타일을 좀 더 쉽게 적용할 수 있음
+   -> HTML 파일의 CSS 블럭을 살펴보면 .msgBox 클래스 셀렉터를 사용하여 메시지 박스와
+      그 내용을 스타일링할 수 있음을 알 수 있음(7/1) 
+      
+ - 마지막으로 Node.appendChild() DOM 함수를 사용하여 html 변수 안의 엘리먼트에
+   panel 변수에 저장된 <div> 엘리먼트를 자식 엘리먼트로 삽입함
+ -> 변수 선언만으로는 페이지에 표시할 수 없음
+ -> 반드시 아래처럼 작성하여 엘리먼트가 어디에 표시되는지 명시할 필요가 있음
+ 
+ const panel = document.createElement('div');
+ panel.setAttribute('class', 'msgBox');
+ html.appendChild(panel);
+ 
+ - 다음 두 섹션은 위에서 봤던것과 동일한 createElement() 그리고 appendChild() 함수를 사용함
+ -> <p> 그리고 <button>을 만들어 panel의 <div>태그의 자식 엘리먼트로 넣음
+ -> 우리는 Node.textContent 속성을 사용하여 버튼에 x라는 글자를 새겨 넣음
+ -> 이 버튼은 사용자가 메시지 박스를 닫기를 원할 때 클릭/활성화 해야 하는 버튼임(7/1)
+ 
+ - 마지막으로 GlobalEventHanlder.onclick 이벤트 핸들러를 사용하여 사용자가 x버튼을 클릭하면
+   메시지 상자를 닫을 수 있게 만듦
+   
+ - 간단히 말하면 onclick 핸들러는 버튼에서 사용할 수 있으며 버튼이 클릭됐을 때 실행될 코드를
+   작성할 수 있음
+ -> 더 자세한 기능은 events article을 참조함
+ -> 이제 onclick 핸들러를 익명 함수와 동일하게 만들고, 그 안에 버튼이 클릭됐을 때,
+    실행될 코드를 작성함
+ -> 함수 안쪽에서 Node.removeChild() DOM API 함수를 사용하여 HTML 엘리먼트를 삭제하도록 명령함(7/1)
+ -> 이 경우 panel 변수의 <div>임
+ 
+ closeBtn.onclick = function(){
+    panel.parentNode.removeChild(panel);
+ }
+ 
+ - 기본적으로 전체 코드 블럭은 아래처럼 보이는 HTML 블록을 생성하고 페이지에 나타내줌
+ 
+ <div class="msgBox">
+   <p>This is a message box</p>
+   <button>x</button>
+ </div>
+ 
+ - 많은 코드를 살펴봤음
+ -> 예제에 포함된 CSS코드를 포함한 모든 코드를 지금 당장 이해할 필요는 없음
+ -> 이 예제에서 중점적으로 다루고자 하는 부분은 함수의 구조와 사용 방법이었음
+ -> CSS 코드는 학습자의 흥미를 유도하기 위해 재미있는 것을 보여주고자 만들었음(7/1)
+ 
+ 
