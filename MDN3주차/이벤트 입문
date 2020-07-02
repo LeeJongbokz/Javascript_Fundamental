@@ -114,3 +114,101 @@
    
    - 당신은 이 학습의 단계에서 그러한 환경을 이해할 필요는 없음
    -> 우리는 단지 당신이 이벤트가 다른 프로그래밍 환경에 따라 다를 수 있음을 명확하게 하고 싶음(7/2) 
+
+
+## 웹 이벤트를 사용하는 방법
+
+- 당신이 웹 페이지에 이벤트 리스너 코드를 더할 수 있는 다양한 방법이 있음
+-> 그리고 그것은 이벤트가 발생했을 때 동작할 것임(7/2)
+
+- 이 섹션에서 우리는 다양한 메커니즘을 리뷰하고, 어떤 것을 사용할지 논의함(7/2)
+
+### 이벤트 핸들러 특성
+
+- 이것들은 이벤트 핸들러 코드를 담기위한 특성이고, 우리의 코스에서 가장 자주 쓰임
+-> 위의 예시로 돌아가보자 (7/2)
+
+  const btn = document.querySelector('button');
+  
+  btn.onclick = function(){
+    const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+    document.body.style.backgroundColor = rndCol;
+ }
+ 
+ - onclick 프로퍼티는 이러한 상황에 쓰이는 이벤트 핸들러임
+ -> 이것은 버튼에 대해 가능한 다른 특성들과 같은 것임(7/2)
+ -> 하지만 이것은 특별한 타입임
+ -> 당신이 어떤 코드에 맞춰 놓으면, 코드는 당신이 이벤트를 실행했을 때 실행됨(7/2) 
+ 
+ - 당신은 또한 핸들러 특성을 이름이 있는 함수에 대응 시킬 수 있음
+ -> 아래는 위와 똑같이 동작함
+ 
+ const btn = document.querySelector('button');
+ 
+ function bgChange(){
+   const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+   document.body.style.backgroundColor = rndCol;
+ }
+ 
+ btn.onclick = bgChange;
+ 
+ - 많은 다양한 이벤트 핸들러가 이용 가능함
+ -> 실험을 해보자(7/2)
+ 
+ - 우선, random-color-eventhandlerproperty.html을 복사하고, 당신의 브라우저에서 열음
+ -> 이것은 단순히 simple random color example의 복사본임
+ -> 이제 btn.onclick을 아래의 다른 값들에 따라 차레로 바꿔보고,
+    그 결과를 확인해봄(7/2) 
+    
+ (1) btn.onfocus 와 btn.onblur
+ - 버튼이 초점이 맞춰져 있느냐 아니느냐에 따라서 색깔이 바뀜
+ -> pressing tab을 눌러서 button을 focus하고, press tab을 다시 눌러서 버튼을 focus away함
+ -> 이것들은 종종 어떻게 focus가 된 form fields를 채울지,
+    혹은 잘못된 값이 입력된 form field에서 에러 메시지를 나타낼지 등에 사용됨   
+    
+ (2) btn.ondblclick - 색깔이 버튼이 더블 클릭했을 때 변화함
+ 
+ (3) window.onkeypress, window.onkeydown, window.onkeyup
+ - 색깔은 key가 키보드에서 눌렸을 때 변화함
+ -> keypress 이벤트는 일반적인 프레스를 의미하고, keydown과 keyup은 keystroke의 key down 파트와 key up 파트를 각각 의미함
+ -> 당신이 이 이벤트 핸들러를 버튼 그 자체에 등록하려고 하면 동작하지 않음(7/2)
+ -> 우리는 이것을 window object에 등록해야 하고, 그것은 전체 브라우저 윈도우를 대표함(7/2)
+ 
+ (4) btn.onmouseover 그리고 btn.onmouseout
+ -> 색깔은 mouse pointer가 이동하고 버튼 위에 놓일 때마다 바뀜
+ -> 혹은 pointer가 버튼위에 놓이는 것을 멈추고 버튼을 나갈때마다 바뀜(7/2) 
+ 
+ - 몇몇 이벤트는 매우 일반적이고 거의 모든 것에서 사용 가능함
+   (ex) 예를 들어, onclick 핸들러는 어떤 element에도 등록될 수 있음)
+ -> 반면, 몇몇은 더 구체적이고 오직 특정한 상황에서만 사용 가능함(7/2)   
+   (ex) onplay는 <video>와 같은 특정한 element에서만 가능함)
+   
+   
+ ### addEventListener()와 removeEventListener()
+ 
+ - 새로운 type의 event mechanism은 DOM Level2 이벤트에 정의될 수 있음
+ -> 그것은 새로운 함수인 addEventListener()를 브라우저에 더함(7/2) 
+ 
+ - 이 함수는 이벤트 핸들러 특성과 유사한 방식으로 동작함
+ -> 그러나 syntax가 확실히 다름
+ -> 우리는 우리의 random color example을 이렇게 작성할 수 있음(7/2)
+ 
+ const btn = document.querySelector('button');
+ 
+ function bgChange(){
+     const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+     document.body.style.backgroundColor = rndCol;
+ }
+ 
+ btn.addEventListener('click', bgChange);
+ 
+ - addEventListenr() 함수에서 우리는 2개의 매개변수를 구체화함
+ -> 우리가 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
